@@ -59,7 +59,7 @@ export function ExperienceSection() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section id="experience" className="py-16 lg:py-24 relative overflow-hidden" ref={containerRef}>
+    <section id="experience" className="py-12 md:py-16 lg:py-24 relative overflow-hidden" ref={containerRef}>
       {/* Ambient background */}
       <motion.div 
         className="absolute inset-0"
@@ -69,19 +69,19 @@ export function ExperienceSection() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       </motion.div>
       
-      <div className="container mx-auto relative" ref={ref}>
+      <div className="container mx-auto px-2 md:px-4 relative" ref={ref}>
         <div className="max-w-6xl mx-auto">
           {/* Section Header - Enhanced */}
           <motion.div
-            className="mb-24"
+            className="mb-12 md:mb-24"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground block mb-6 font-medium">
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground block mb-4 md:mb-6 font-medium">
               Experience
             </span>
-            <h2 className="font-heading text-display-sm lg:text-display leading-[0.95]">
+            <h2 className="font-heading text-3xl md:text-display-sm lg:text-display leading-[0.95]">
               <span className="block overflow-hidden">
                 <motion.span
                   className="block"
@@ -105,10 +105,10 @@ export function ExperienceSection() {
             </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-28">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-28">
             {/* Left - Work Experience */}
-            <div className="space-y-14">
-              <h3 className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8 font-medium">
+            <div className="space-y-8 md:space-y-14">
+              <h3 className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 md:mb-8 font-medium">
                 Work Experience
               </h3>
               {experiences.map((exp, index) => (
@@ -120,20 +120,20 @@ export function ExperienceSection() {
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <MiniCard>
-                    <div className="space-y-8">
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="space-y-6 md:space-y-8">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 md:gap-4">
                       <div>
-                        <h3 className="font-heading text-2xl lg:text-3xl font-bold text-foreground">
+                        <h3 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-foreground break-words">
                           {exp.title}
                         </h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <p className="text-muted-foreground text-lg lg:text-xl">{exp.company}</p>
+                        <div className="flex flex-wrap items-center gap-2 mt-1">
+                          <p className="text-muted-foreground text-base md:text-lg lg:text-xl">{exp.company}</p>
                           {exp.website && (
                             <a 
                               href={exp.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-sm lg:text-base text-[#A100FF] hover:underline"
+                              className="inline-flex items-center gap-1 text-sm text-[#A100FF] hover:underline"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -143,31 +143,31 @@ export function ExperienceSection() {
                           )}
                         </div>
                       </div>
-                      <span className="text-sm tracking-[0.2em] text-muted-foreground whitespace-nowrap font-medium">
+                      <span className="text-xs md:text-sm tracking-[0.2em] text-muted-foreground font-medium">
                         {exp.period}
                       </span>
                     </div>
                     
-                    <ul className="space-y-5">
+                    <ul className="space-y-4 md:space-y-5">
                       {exp.description.map((item, i) => (
                         <motion.li 
                           key={i} 
-                          className="flex items-start gap-4 text-muted-foreground text-base lg:text-lg"
+                          className="flex items-start gap-3 md:gap-4 text-muted-foreground text-sm md:text-base lg:text-lg"
                           initial={{ opacity: 0, x: -10 }}
                           animate={isInView ? { opacity: 1, x: 0 } : {}}
                           transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
                         >
-                          <span className="w-2 h-2 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                          <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-foreground mt-2 flex-shrink-0" />
                           <span className="leading-relaxed">{item}</span>
                         </motion.li>
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-3 pt-4">
+                    <div className="flex flex-wrap gap-2 md:gap-3 pt-2 md:pt-4">
                       {exp.technologies.map((tech, i) => (
                         <motion.span
                           key={tech}
-                          className="px-5 py-2 text-sm lg:text-base border border-border/60 rounded-full text-muted-foreground hover:border-foreground/30 transition-colors duration-300"
+                          className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm lg:text-base border border-border/60 rounded-full text-muted-foreground hover:border-foreground/30 transition-colors duration-300"
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={isInView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ delay: 0.5 + i * 0.05, duration: 0.3 }}

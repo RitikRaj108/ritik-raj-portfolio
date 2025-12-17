@@ -155,7 +155,13 @@
 
 /* Section wrapper - add padding */
 .accenture-card.section-wrapper .accenture-card-content {
-  padding: 16px;
+  padding: 12px;
+}
+
+@media (min-width: 640px) {
+  .accenture-card.section-wrapper .accenture-card-content {
+    padding: 16px;
+  }
 }
 
 @media (min-width: 768px) {

@@ -60,10 +60,10 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background overflow-x-hidden">
         <ScrollProgress />
         <Header />
-        <main className="space-y-8 px-4 md:px-6 lg:px-8 pb-8">
+        <main className="space-y-8 px-2 sm:px-4 md:px-6 lg:px-8 pb-8 overflow-x-hidden">
           <AccentureCard className="section-wrapper">
             <HeroSection />
           </AccentureCard>
