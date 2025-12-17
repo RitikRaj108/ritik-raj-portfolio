@@ -1,0 +1,36 @@
+body {
+  cursor: none; /* Hides default cursor */
+}
+
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: difference; /* The magic that inverts colors */
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Hover State - Becomes bigger */
+.cursor-outline.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
+}

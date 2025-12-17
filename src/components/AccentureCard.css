@@ -1,0 +1,210 @@
+/* Accenture Brand Color */
+:root {
+  --accenture-purple: #A100FF;
+  --accenture-purple-glow: rgba(161, 0, 255, 0.7);
+}
+
+/* Main Card Container */
+.accenture-card {
+  position: relative;
+  border-radius: 16px;
+  margin: 8px;
+}
+
+/* Visible static border */
+.accenture-card-content {
+  position: relative;
+  background: hsl(var(--background));
+  border-radius: 16px;
+  border: 1px solid hsl(var(--border) / 0.6);
+  min-height: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px hsl(var(--border) / 0.2);
+}
+
+/* Animated border container */
+.accenture-card-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* First rotating line */
+.accenture-card-border::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    var(--accenture-purple) 330deg,
+    var(--accenture-purple) 360deg
+  );
+  animation: rotateBorderLine 8s linear infinite;
+}
+
+/* Second rotating line (opposite side) */
+.accenture-card-border::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    transparent 300deg,
+    var(--accenture-purple) 330deg,
+    var(--accenture-purple) 360deg
+  );
+  animation: rotateBorderLine 8s linear infinite;
+}
+
+/* Mask to create thin border effect */
+.accenture-card-mask {
+  position: absolute;
+  inset: 2px;
+  background: hsl(var(--background));
+  border-radius: 14px;
+  z-index: 1;
+}
+
+/* Glow following the lines */
+.accenture-card-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 26px;
+  overflow: hidden;
+  z-index: -2;
+  opacity: 0.5;
+  filter: blur(12px);
+}
+
+.accenture-card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 290deg,
+    var(--accenture-purple-glow) 325deg,
+    var(--accenture-purple-glow) 360deg
+  );
+  animation: rotateBorderLine 8s linear infinite;
+}
+
+.accenture-card-glow::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    transparent 290deg,
+    var(--accenture-purple-glow) 325deg,
+    var(--accenture-purple-glow) 360deg
+  );
+  animation: rotateBorderLine 8s linear infinite;
+}
+
+/* Rotation animation */
+@keyframes rotateBorderLine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover effects */
+.accenture-card:hover .accenture-card-border::before,
+.accenture-card:hover .accenture-card-border::after,
+.accenture-card:hover .accenture-card-glow::before,
+.accenture-card:hover .accenture-card-glow::after {
+  animation-duration: 4s;
+}
+
+.accenture-card:hover .accenture-card-glow {
+  opacity: 0.8;
+}
+
+/* Dark theme */
+.dark .accenture-card-content {
+  background: hsl(0 0% 4%);
+  border-color: hsl(0 0% 25% / 0.7);
+  box-shadow: 0 0 0 1px hsl(0 0% 20% / 0.3);
+}
+
+.dark .accenture-card-mask {
+  background: hsl(0 0% 4%);
+}
+
+/* Light theme */
+:root:not(.dark) .accenture-card-content {
+  background: hsl(0 0% 100%);
+  border-color: hsl(0 0% 75%);
+  box-shadow: 0 0 0 1px hsl(0 0% 85% / 0.5);
+}
+
+:root:not(.dark) .accenture-card-mask {
+  background: hsl(0 0% 100%);
+}
+
+/* Section wrapper - no padding */
+.accenture-card.section-wrapper .accenture-card-content {
+  padding: 0;
+}
+
+/* Mini card variant for smaller boxes */
+.accenture-card.mini {
+  margin: 4px;
+  border-radius: 12px;
+}
+
+.accenture-card.mini .accenture-card-content {
+  border-radius: 12px;
+}
+
+.accenture-card.mini .accenture-card-border {
+  border-radius: 14px;
+}
+
+.accenture-card.mini .accenture-card-mask {
+  border-radius: 10px;
+}
+
+.accenture-card.mini .accenture-card-glow {
+  border-radius: 22px;
+  inset: -6px;
+  filter: blur(8px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .accenture-card-border::before,
+  .accenture-card-border::after,
+  .accenture-card-glow::before,
+  .accenture-card-glow::after {
+    animation-duration: 10s;
+  }
+  
+  .accenture-card:hover .accenture-card-border::before,
+  .accenture-card:hover .accenture-card-border::after,
+  .accenture-card:hover .accenture-card-glow::before,
+  .accenture-card:hover .accenture-card-glow::after {
+    animation-duration: 6s;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .accenture-card-border::before,
+  .accenture-card-border::after,
+  .accenture-card-glow::before,
+  .accenture-card-glow::after {
+    animation: none;
+  }
+}
