@@ -50,6 +50,15 @@ export function useClickSound() {
 
 // Global click sound setup - attaches to buttons, links, and interactive elements
 export function setupGlobalClickSound() {
+  // Skip on mobile/touch devices for better performance
+  const isTouchDevice = ('ontouchstart' in window) || 
+                        (navigator.maxTouchPoints > 0) ||
+                        (window.matchMedia('(pointer: coarse)').matches);
+  
+  if (isTouchDevice) {
+    return () => {}; // Return empty cleanup function
+  }
+
   let sound: Howl | null = null;
   
   // Initialize sound immediately

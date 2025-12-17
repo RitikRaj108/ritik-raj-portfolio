@@ -1,3 +1,14 @@
+/* Show default cursor on touch/mobile devices */
+@media (pointer: coarse), (hover: none) {
+  body {
+    cursor: auto !important;
+  }
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+}
+
 body {
   cursor: none; /* Hides default cursor */
 }

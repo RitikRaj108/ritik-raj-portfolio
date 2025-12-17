@@ -1,15 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Cursor.css';
 
 const Cursor = () => {
   const dotRef = useRef(null);
   const outlineRef = useRef(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   
   // Use refs for position to avoid re-renders
   const mousePos = useRef({ x: 0, y: 0 });
   const outlinePos = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Check if touch device
+    const checkTouchDevice = () => {
+      return ('ontouchstart' in window) || 
+             (navigator.maxTouchPoints > 0) || 
+             (window.matchMedia('(pointer: coarse)').matches);
+    };
+    
+    if (checkTouchDevice()) {
+      setIsTouchDevice(true);
+      return; // Don't setup cursor on touch devices
+    }
+
     // 1. Mouse Move Event
     const handleMouseMove = (e) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
@@ -62,6 +75,9 @@ const Cursor = () => {
       cancelAnimationFrame(animationId);
     };
   }, []);
+
+  // Don't render cursor on touch devices
+  if (isTouchDevice) return null;
 
   return (
     <>

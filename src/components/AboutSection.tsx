@@ -175,10 +175,10 @@ export function AboutSection() {
             >
               {/* Current Focus - Enhanced card */}
               <MiniCard>
-                <h3 className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 font-medium">
+                <h3 className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-medium">
                   Current Focus
                 </h3>
-                <p className="text-foreground text-lg lg:text-xl leading-relaxed">
+                <p className="text-foreground text-lg lg:text-2xl leading-relaxed">
                   Seeking software engineering opportunities where I can contribute to innovative 
                   projects and continue growing as a developer.
                 </p>
@@ -186,27 +186,27 @@ export function AboutSection() {
 
               {/* Education */}
               <MiniCard>
-                <h3 className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 font-medium">
+                <h3 className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-medium">
                   Education
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-foreground font-medium text-lg">B.Tech in Computer Science & Engineering</p>
-                    <p className="text-muted-foreground">Indian Institute of Information Technology Guwahati • Present</p>
+                    <p className="text-foreground font-medium text-lg lg:text-xl">B.Tech in Computer Science & Engineering</p>
+                    <p className="text-muted-foreground text-base lg:text-lg">Indian Institute of Information Technology Guwahati • Present</p>
                   </div>
                 </div>
               </MiniCard>
 
               {/* Expertise - Enhanced pills */}
               <MiniCard>
-                <h3 className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 font-medium">
+                <h3 className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-medium">
                   Core Expertise
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {['Full-Stack Development', 'React.js', 'Node.js', 'AI/ML', 'System Design', 'Database Architecture'].map((skill, index) => (
                     <motion.span
                       key={skill}
-                      className="px-5 py-2.5 text-sm border border-border/60 rounded-full text-foreground hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-500 cursor-default"
+                      className="px-5 py-3 text-sm lg:text-base border border-border/60 rounded-full text-foreground hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-500 cursor-default"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 0.6 + index * 0.05, duration: 0.4 }}
@@ -220,10 +220,10 @@ export function AboutSection() {
 
               {/* Location */}
               <MiniCard>
-                <h3 className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 font-medium">
+                <h3 className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 font-medium">
                   Location
                 </h3>
-                <p className="text-foreground text-lg">
+                <p className="text-foreground text-lg lg:text-xl">
                   Guwahati, India • <span className="text-muted-foreground">Open to Remote</span>
                 </p>
               </MiniCard>

@@ -153,9 +153,21 @@
   background: hsl(0 0% 100%);
 }
 
-/* Section wrapper - no padding */
+/* Section wrapper - add padding */
 .accenture-card.section-wrapper .accenture-card-content {
-  padding: 0;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .accenture-card.section-wrapper .accenture-card-content {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .accenture-card.section-wrapper .accenture-card-content {
+    padding: 32px;
+  }
 }
 
 /* Mini card variant for smaller boxes */
@@ -182,20 +194,31 @@
   filter: blur(8px);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .accenture-card-border::before,
-  .accenture-card-border::after,
-  .accenture-card-glow::before,
-  .accenture-card-glow::after {
-    animation-duration: 10s;
+/* Mobile - Completely disable all animations and effects */
+@media (max-width: 768px), (pointer: coarse) {
+  .accenture-card-border {
+    display: none !important;
   }
   
-  .accenture-card:hover .accenture-card-border::before,
-  .accenture-card:hover .accenture-card-border::after,
-  .accenture-card:hover .accenture-card-glow::before,
-  .accenture-card:hover .accenture-card-glow::after {
-    animation-duration: 6s;
+  .accenture-card-glow {
+    display: none !important;
+  }
+  
+  .accenture-card-mask {
+    display: none !important;
+  }
+  
+  .accenture-card-content {
+    border: 1px solid hsl(var(--border) / 0.5) !important;
+    box-shadow: none !important;
+  }
+  
+  .accenture-card {
+    margin: 4px !important;
+  }
+  
+  .accenture-card:hover .accenture-card-glow {
+    opacity: 0 !important;
   }
 }
 

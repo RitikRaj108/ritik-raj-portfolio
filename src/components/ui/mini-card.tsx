@@ -13,7 +13,7 @@ export function MiniCard({ children, className = '' }: MiniCardProps) {
       <div className="accenture-card-border">
         <div className="accenture-card-mask" />
       </div>
-      <div className="accenture-card-content p-6">
+      <div className="accenture-card-content p-6 md:p-8 lg:p-10">
         {children}
       </div>
     </div>

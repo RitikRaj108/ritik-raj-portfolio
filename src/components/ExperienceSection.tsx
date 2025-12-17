@@ -9,6 +9,7 @@ const experiences = [
     company: 'AshwaQuant Pvt. Ltd.',
     period: 'May 2025 – July 2025',
     location: 'Remote, India',
+    website: 'https://ashwaquant.com',
     description: [
       'Built and deployed a fully responsive company website from scratch using React.js, aligned with branding and UI/UX best practices.',
       'Integrated Node.js backend with RESTful APIs to enable reliable contact forms, automated inquiry responses, and seamless client communication.',
@@ -119,39 +120,54 @@ export function ExperienceSection() {
                   transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <MiniCard>
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h3 className="font-heading text-xl lg:text-2xl font-bold text-foreground">
+                        <h3 className="font-heading text-2xl lg:text-3xl font-bold text-foreground">
                           {exp.title}
                         </h3>
-                        <p className="text-muted-foreground text-lg">{exp.company}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <p className="text-muted-foreground text-lg lg:text-xl">{exp.company}</p>
+                          {exp.website && (
+                            <a 
+                              href={exp.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-sm lg:text-base text-[#A100FF] hover:underline"
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                              Live
+                            </a>
+                          )}
+                        </div>
                       </div>
-                      <span className="text-xs tracking-[0.2em] text-muted-foreground whitespace-nowrap font-medium">
+                      <span className="text-sm tracking-[0.2em] text-muted-foreground whitespace-nowrap font-medium">
                         {exp.period}
                       </span>
                     </div>
                     
-                    <ul className="space-y-4">
+                    <ul className="space-y-5">
                       {exp.description.map((item, i) => (
                         <motion.li 
                           key={i} 
-                          className="flex items-start gap-4 text-muted-foreground"
+                          className="flex items-start gap-4 text-muted-foreground text-base lg:text-lg"
                           initial={{ opacity: 0, x: -10 }}
                           animate={isInView ? { opacity: 1, x: 0 } : {}}
                           transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                          <span className="w-2 h-2 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
                           <span className="leading-relaxed">{item}</span>
                         </motion.li>
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2.5 pt-4">
+                    <div className="flex flex-wrap gap-3 pt-4">
                       {exp.technologies.map((tech, i) => (
                         <motion.span
                           key={tech}
-                          className="px-4 py-1.5 text-xs border border-border/60 rounded-full text-muted-foreground hover:border-foreground/30 transition-colors duration-300"
+                          className="px-5 py-2 text-sm lg:text-base border border-border/60 rounded-full text-muted-foreground hover:border-foreground/30 transition-colors duration-300"
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={isInView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ delay: 0.5 + i * 0.05, duration: 0.3 }}

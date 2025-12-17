@@ -643,3 +643,113 @@
 *:focus-visible {
   @apply outline-none ring-2 ring-foreground ring-offset-2 ring-offset-background;
 }
+
+/* ========================================
+   MOBILE PERFORMANCE FIXES
+   Disable all heavy animations on mobile
+   ======================================== */
+@media (max-width: 768px), (pointer: coarse) {
+  /* Disable ALL transitions and animations globally */
+  *, *::before, *::after {
+    animation: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition: none !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    will-change: auto !important;
+  }
+  
+  /* Disable all glow effects */
+  .glow, .glow-subtle, .glow-accent {
+    box-shadow: none !important;
+  }
+  
+  /* Disable glass morphism for better performance */
+  .glass, .glass-strong {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: hsl(var(--card)) !important;
+  }
+  
+  /* Disable hover effects */
+  .hover-lift:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Disable animated gradient */
+  .gradient-animate {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+  
+  /* Disable noise texture */
+  .noise::before {
+    display: none !important;
+  }
+  
+  /* Disable card effects */
+  .card-premium::before {
+    display: none !important;
+  }
+  
+  /* Disable shimmer */
+  .animate-shimmer {
+    animation: none !important;
+    background: transparent !important;
+  }
+  
+  /* Disable all float, pulse, spin animations */
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-spin-slow,
+  .animate-breathe,
+  .animate-glow-pulse {
+    animation: none !important;
+  }
+  
+  /* Ensure opacity is always 1 for content visibility */
+  .stagger-container > * {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  
+  /* Disable text reveal animations */
+  .reveal-text {
+    clip-path: none !important;
+    animation: none !important;
+  }
+  
+  /* Disable underline animations */
+  .underline-animated::after {
+    display: none !important;
+  }
+  
+  /* Disable link hover effects */
+  .link-hover::after {
+    display: none !important;
+  }
+  
+  /* Disable split text animation */
+  .split-letter {
+    transition: none !important;
+  }
+  
+  /* Ensure smooth scrolling is still on but no jank */
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable page transitions */
+  .page-transition-enter,
+  .page-transition-enter-active {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
