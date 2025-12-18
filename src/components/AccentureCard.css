@@ -201,7 +201,7 @@
 }
 
 /* Mobile - Completely disable all animations and effects */
-@media (max-width: 768px), (pointer: coarse) {
+@media (max-width: 768px) and (hover: none) {
   .accenture-card-border {
     display: none !important;
   }
