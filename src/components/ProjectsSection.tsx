@@ -68,6 +68,22 @@ function Project3DCard({ children, className }: { children: React.ReactNode; cla
 
 const projects = [
   {
+    title: 'RaiseHand Clone',
+    subtitle: 'Real-Time Interaction Tool',
+    date: 'Jan 2026',
+    description: 'Live classroom interaction tool enabling instant student-teacher communication with real-time alerts, live polls, and a moderation dashboard.',
+    highlights: [
+      'Real-time "Hand Raise" notifications',
+      'Live polls for instant feedback',
+      'Trainer dashboard for moderation',
+      'Low-latency WebSocket implementation using Django Channels and Redis',
+    ],
+    techStack: ['Python (Django)', 'Django Channels', 'WebSockets', 'Redis'],
+    year: '2026',
+    github: 'https://github.com/RitikRaj108/RaiseHands',
+    featured: true,
+  },
+  {
     title: 'Melora',
     subtitle: 'Music Recommendation System',
     date: 'Mar 2025',
