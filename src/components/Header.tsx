@@ -74,7 +74,7 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-5">
               <ThemeToggle />
               <Button variant="premium" size="sm" asChild data-magnetic>
-                <a href="/Ritik_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/drive/folders/17f7-JSqaPFXhbkfpn2aTHH-KRNsfKE2V?usp=sharing" target="_blank" rel="noopener noreferrer">
                   Resume
                 </a>
               </Button>
@@ -157,7 +157,7 @@ export function Header() {
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
                 <Button variant="premium" size="lg" asChild>
-                  <a href="/Ritik_Resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
+                  <a href="https://drive.google.com/drive/folders/17f7-JSqaPFXhbkfpn2aTHH-KRNsfKE2V?usp=sharing" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
                     Download Resume
                   </a>
                 </Button>
